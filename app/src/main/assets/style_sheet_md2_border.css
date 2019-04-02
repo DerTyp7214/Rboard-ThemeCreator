@@ -1,0 +1,88 @@
+/* Color */
+.keytop {
+    elevation: 1.0;
+}
+.keytop.for-candidate-key,
+.keytop.for-dashboard-key,
+.keytop.for-category-key,
+.keytop.transparent {
+    elevation: 0.0;
+}
+
+/* veu */
+@def color_state_border_key_action_pressed #0000009e;
+@def color_state_border_key_action #0000009e;
+@def color_label_space_key #F9013EFF;
+@def color_state_key_pressed #0000009e;
+@def color_state_key #000000FF;
+/* temp */
+@def color_state_key_dark_pressed #000000FF;
+@def color_state_key_dark #0000009e;
+
+.keytop,
+.keytop.for-numpad-big-panel {
+    elevation: 1;
+}
+.keytop.for-space-bar {
+    background_shape: rectangle;
+}
+.keytop {
+    shadow_color: #00000000;
+    edge_width: 0;
+    edge_color: #68EFAD00;
+}
+.keytop.dark,
+.keytop.for-action-key {
+    edge_color: #00000000;
+}
+.keytop.for-numpad-big-panel-holder {
+    elevation: 0;
+    background_color: #00000000;
+    padding_ratio_left: 0;
+    padding_ratio_top: 0;
+    padding_ratio_right: 0;
+    padding_ratio_bottom: 0;
+}
+.divider.for-numpad-big-panel {
+    visibility: gone;
+}
+
+.keytop.dark.for-numpad-big-panel,
+.keytop.for-numpad-big-panel {
+    elevation: 1;
+    background_color: @color_state_key;
+    background_corner_radius: @default_background_corner_radius;
+}
+
+.keytop.dark.for-numpad,
+.keytop.for-numpad {
+    padding_ratio_left: 1.4;
+    padding_ratio_top: 1.2;
+    padding_ratio_right: 1.4;
+    padding_ratio_bottom: 1.2;
+}
+
+.keytop.dark.for-scrollable-key-holder.for-numpad,
+.keytop.for-scrollable-key-holder.for-numpad {
+    background_color: #00000000;
+}
+
+.icon.for-action-key {
+    color: #FFFFFFFF
+}
+.icon.for-action-key.for-action-default-key {
+    color: @color_label;
+    alpha: 1;
+}
+.keytop.for-action-key:pressed {
+    background_color: @color_state_border_key_action_pressed;
+}
+.keytop.for-action-key {
+    background_color: @color_state_border_key_action;
+}
+.keytop.for-action-key.for-action-default-key:pressed {
+    background_color: @color_state_key_dark_pressed;
+}
+.keytop.for-action-key.for-action-default-key {
+    background_color: @color_state_key_dark;
+}

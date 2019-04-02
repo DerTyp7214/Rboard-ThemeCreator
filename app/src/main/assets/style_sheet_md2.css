@@ -1,0 +1,459 @@
+@def color_header #DE003D00;
+@def color_base #DE003D00;
+@def color_icon_action #FFFFFFFF;
+/* This value is not used for action key background, since it is special on material theme. */
+@def color_state_action_pressed #DE003DFF;
+/* This value is not used for action key background, since it is special on material theme. */
+@def color_state_action #FFFFFFFF;
+@def color_state_action_popup_pressed #000000;
+@def color_state_action_popup #F9013EFF;
+@def color_keyboard_editing_button_background #DE003DFF;
+@def color_action_default #FFFFFFFF;
+@def color_icon #FFFFFFFF;
+@def color_label #FFFFFFFF;
+@def color_emoji_handwriting_hint_label #DE003DFF;
+@def color_label_secondary #FFFFFFFF;
+/* Undocumented */
+@def color_label_dynamic #FFFFFFFF;
+@def color_label_header_active #FFFFFFFF;
+@def color_label_header_inactive #FFFFFFFF;
+/* Undocumented */
+@def color_state_label_candidate_selected #FFFFFFFF;
+/* Undocumented */
+@def color_state_label_candidate #FFFFFFFF;
+@def color_popup_label #FFFFFFFF;
+@def color_state_popup_label_pressed #DE003DFF;
+@def color_label_left_panel #DE003DFF;
+@def color_label_function_key #DE003DFF;
+@def color_label_space_key #F9013E;
+@def color_icon_more_candidates_background #DE003DFF;
+@def F9013E #FFFFFFFF;
+@def color_state_key #DE003D00;
+@def color_state_key_dark_pressed #FFFFFFFF;
+@def color_state_key_dark #DE003D00;
+@def color_state_key_transparent_pressed #FFFFFFFF;
+@def color_state_key_transparent #DE003D00;
+@def color_state_space_bar_pressed #160006FF;
+@def color_state_space_bar #000000FF;
+/* Undocumented */
+@def color_state_dashboard_mask_pressed #DE003DFF;
+/* Undocumented */
+@def color_state_dashboard_mask #DE003DFF;
+@def color_keyboard_separator #DE003DFF;
+@def color_keyboard_separator_numpad #DE003D00;
+@def color_keyboard_top_separator #DE003D00;
+/* Undocumented */
+@def color_candidate_separator #DE003D00;
+/* Undocumented */
+@def color_candidate_panel_separator #DE003D00;
+@def color_key_paging_scrollbar #DE003DFF;
+@def color_key_paging_scrollbar_background #F1F3F400;
+/* Revisit */
+@def color_state_popup_item_pressed #000000FF;
+@def color_popup_background #DE003DFF;
+@def color_state_access_point_item_background #DE003DFF;
+@def color_access_points_menu_background #DE003DFF;
+/* Revisit */
+@def color_generic_extension_background_activated #DE003DFF;
+@def color_generic_extension_background #DE003DFF;
+@def color_access_point_panel_item_background #DE003DFF;
+@def color_access_points_panel_background #DE003DFF;
+@def color_background_text_editing_body #DE003DFF;
+@def color_background_text_editing_separator #DE003D0F;
+/* Undocumented */
+@def color_label_text_editing_unactivate_key #9501253D;
+@def color_keyboard_editing_overlay #DE003DFF;
+@def color_keyboard_editing_button #DE003DFF;
+@def color_notice_text #DE003DFF;
+/* Override pre-defined variable definition */
+@def default_background_corner_radius 5;
+
+/* GIF rules */
+@def color_state_gif_category_text_selected #DE003DFF;
+@def color_state_gif_category_text #950125FF;
+@def color_state_gif_category_background_selected #FFFFFFFF;
+@def color_state_gif_category_background #DE003D00;
+@def color_gif_search_bar_query #DE003DFF;
+@def color_gif_search_bar_query_hint #DE003DFF;
+
+/* Sticker */
+@def color_sticker_btn_background #950125FF;
+@def color_sticker_icon #DE003DFF;
+@def color_sticker_accent_icon #DE003DFF;
+
+/* Color common */
+.keyboard-body-area,
+.tab.in-keyboard-header-area {
+    background_color: @color_base;
+}
+.keyboard-header-area,
+.keyboard-base-area,
+.candidates-area,
+.candidates-area.expanded,
+.popup {
+    background_color: @color_header;
+}
+.label,
+.label.for-dashboard-key,
+.label.for-dashboard-key.active,
+.label.for-extension,
+.label.for-prime-page-switch,
+.icon,
+.icon.active,
+.track.for-handwriting,
+.icon.header.inactive {
+    color: @color_label;
+}
+.icon.active.for-function-key,
+.icon.active.for-shift-key {
+    alpha: 1;
+}
+.label.in-left-panel,
+.label.for-function-key,
+.icon.for-function-key {
+    color: #FFFFFF;
+    alpha: 1;
+}
+.icon.for-action-key.for-action-default-key {
+    color: #DE003D;
+}
+.icon.for-action-key {
+    color: #DE003D;
+}
+.label.for-emoji-handwriting-hint {
+    color: @color_emoji_handwriting_hint_label;
+}
+.icon.action-color-bg {
+    background_color: @color_action_default;
+}
+.keytop.for-candidates-expansion-key {
+    color: @color_icon_more_candidates_background;
+}
+.background-icon.for-action-key:pressed {
+    color: #160006;
+}
+.background-icon.for-action-key {
+    color: #000000;
+}
+.popup-item.for-action-popup:pressed {
+    background_color: @color_state_action_pressed;
+}
+.popup-item.for-action-popup {
+    background_color: @color_state_action;
+}
+.label.secondary {
+    color: @color_label_secondary;
+}
+.label.dynamic {
+    color: @color_label_dynamic;
+}
+.label.for-category-key.active {
+    color: @color_label_header_active;
+}
+.label.for-category-key {
+    color: @color_label_header_inactive;
+}
+.label.for-candidate-key:selected {
+    color: @color_state_label_candidate_selected;
+}
+.label.for-candidate-key {
+    color: @color_state_label_candidate;
+}
+.keytop:pressed {
+    background_color: #F9013E;
+}
+.keytop {
+    background_color: @color_state_key;
+}
+.keytop.dark:pressed {
+    background_color: @color_state_key_dark_pressed;
+}
+.keytop.dark {
+    background_color: @color_state_key_dark;
+}
+.keytop.for-action-key-holder,
+.keytop.for-action-key {
+    background_color: #DE003D00;
+}
+.keytop.for-candidate-key:pressed,
+.keytop.for-numpad-big-panel:pressed,
+.keytop.transparent:pressed {
+    background_color: @color_state_key_transparent_pressed;
+}
+.keytop.for-candidate-key,
+.keytop.for-numpad-big-panel,
+.keytop.transparent,
+.keytop.for-prime-header-tab {
+    background_color: @color_state_key_transparent;
+}
+.notice.for-notice-key {
+    color: @color_notice_text;
+}
+.label.for-popup-item {
+    color: @color_popup_label;
+}
+.popup-item:pressed,
+.keytop.for-dashboard-key.active:pressed,
+.label.for-dashboard-key.active:pressed {
+    background_color: @color_state_action_pressed;
+}
+.popup-item {
+    background_color: #DE003D00;
+}
+.keytop.for-dashboard-key.active,
+.label.for-dashboard-key.active {
+    background_color: @color_state_action;
+}
+.space_bar:pressed {
+    background_color: @color_state_space_bar_pressed;
+    background_corner_radius: 5;
+}
+.space_bar,
+.label.for-prime-page-switch {
+    background_color: @color_state_space_bar;
+    background_corner_radius: 5;
+}
+.label.for-category-key.for-gif-keyboard:selected {
+    color: @color_state_gif_category_text_selected;
+}
+.label.for-category-key.for-gif-keyboard {
+    color: @color_state_gif_category_text;
+}
+.keytop.for-category-key.for-gif-keyboard:selected {
+    background_color: @color_state_gif_category_background_selected;
+}
+.keytop.for-category-key.for-gif-keyboard {
+    background_color: @color_state_gif_category_background;
+}
+.icon.for-sticker-keyboard {
+    color: @color_sticker_icon;
+}
+.sticker-btn-background.for-sticker-keyboard {
+    background_color: @color_sticker_btn_background;
+}
+.sticker-accent-btn.for-sticker-keyboard {
+    background_color: @color_state_action;
+}
+.sticker-accent-btn.for-sticker-keyboard:pressed {
+    background_color: @color_state_action_pressed;
+}
+.sticker-accent-btn.for-sticker-keyboard {
+    color: @color_sticker_accent_icon;
+}
+.label.for-query {
+    color: @color_gif_search_bar_query;
+    hint_color: @color_gif_search_bar_query_hint;
+}
+.mask.for-dashboard-key:pressed {
+    background_color: @color_state_dashboard_mask_pressed;
+}
+.mask.for-dashboard-key {
+    background_color: @color_state_dashboard_mask;
+}
+.divider.vertical.for-side-panel,
+.divider.for-numpad-big-panel {
+    color: @color_keyboard_separator_numpad;
+}
+.divider.horizontal.top.for-keyboard-base-area {
+    color: @color_keyboard_top_separator;
+}
+.divider.vertical.for-candidate-key {
+    color: @color_candidate_separator;
+}
+.divider.vertical.for-candidate-side-panel {
+    color: @color_candidate_panel_separator;
+}
+.scrollbar.horizontal.for-key-paging {
+    color: @color_key_paging_scrollbar;
+}
+.scrollbar.horizontal.for-key-paging{
+    background_color: @color_key_paging_scrollbar_background;
+}
+.icon.access-point-item {
+    color: @color_state_access_point_item_background;
+}
+.background-icon.access-points-menu {
+    color: @color_access_points_menu_background;
+}
+.background.access-point-panel-item {
+    color: #DE003DFF
+}
+.background.for-extension:activated {
+    background_color: @color_generic_extension_background_activated;
+}
+.background.for-extension {
+    background_color: @color_generic_extension_background;
+}
+.icon.keyboard_editing_edge {
+    color: @color_keyboard_editing_edge_disabled;
+}
+.keyboard_editing_overlay {
+    background_color: @color_keyboard_editing_overlay;
+}
+.icon.keyboard_editing_edge:activated {
+    color: @color_keyboard_editing_button_background;
+}
+.icon.keyboard_editing_button {
+    color: @color_keyboard_editing_button;
+    background_color: @color_keyboard_editing_button_background;
+}
+.icon.access-points-panel-item {
+    background_color: @color_access_point_panel_item_background;
+}
+.access-points-panel {
+    background_color: @color_access_points_panel_background;
+}
+.background.text-editing-body {
+    background_color: @color_background_text_editing_body;
+}
+.background.selected-key {
+    background_color: @color_state_action;
+}
+.background.text-editing-separator {
+    background_color: @color_keyboard_separator;
+}
+.label.text-editing-unactivate-key {
+    color: @color_label_text_editing_unactivate_key;
+}
+.icon.extension-tab {
+    color: @color_state_action;
+}
+.expand-access-points-hint {
+    background_color: #DE003DFF;
+}
+.keytop.for-prime-header-tab:pressed {
+    background_color: @color_state_prime_header_tab_pressed;
+}
+.icon.header.inactive {
+    alpha: @alpha_header_tab_inactive;
+}
+
+/* Material rules*/
+
+.icon {
+  color: @color_icon
+}
+.icon.active {
+    color: @color_action_default;
+}
+.label.for-space-key {
+    color: @color_label_space_key;
+}
+.popup-item:pressed {
+    background_color: @color_state_popup_item_pressed;
+}
+.popup {
+    background_color: @color_popup_background;
+}
+
+/* material specific */
+
+.keytop.for-numpad-big-panel-holder {
+    background_color: #DE003D00;
+    padding_ratio_left: 0;
+    padding_ratio_top: 0;
+    padding_ratio_right: 0;
+    padding_ratio_bottom: 0;
+}
+.track.for-gesture {
+    color: #212121
+}
+.label.for-popup-item:pressed {
+    color: @color_state_popup_label_pressed;
+}
+.popup-item.for-action-popup:pressed {
+    background_color: @color_state_action_popup_pressed;
+}
+.popup-item.for-action-popup {
+    background_color: @color_state_action_popup;
+}
+.keytop {
+    background_shape: rectangle;
+    background_corner_radius: @default_background_corner_radius;
+}
+.keytop.for-space-bar,
+.keytop.for-candidate-key,
+.keytop.for-dashboard-key,
+.keytop.for-category-key,
+.keytop.transparent {
+    background_shape: "";
+}
+.background-icon.for-action-key.for-preview {
+    color: #FFFFFFFF;
+}
+.popup-item.for-keytop-popup {
+    background_shape: rectangle;
+    padding_left: 1;
+    padding_top: 0;
+    padding_right: 1;
+    padding_bottom: 0;
+    background_corner_radius: 5;
+}
+.popup.for-popup-content-inner {
+    background_shape: rectangle;
+    padding_left: 0;
+    padding_top: 0;
+    padding_right: 0;
+    padding_bottom: 0;
+    background_corner_radius: 5;
+}
+
+.icon_key_del {
+    image_ref: "icon_del.png";
+    image_height: 20;
+    image_scale_mode: fill_vertical;
+}
+.icon_key_shift_off {
+    image_ref: "icon_shift_off.png";
+    image_height: 25;
+    image_scale_mode: fill_vertical;
+}
+.icon_key_shift_on {
+    image_ref: "icon_shift_on.png";
+    image_height: 25;
+    image_scale_mode: fill_vertical;
+}
+.icon_key_shift_locked {
+    image_ref: "icon_shift_locked.png";
+    image_height: 25;
+    image_scale_mode: fill_vertical;
+}
+.icon_key_ime_action_enter {
+    image_ref: "icon_enter.png";
+    image_height: 10.5;
+    image_scale_mode: fill_vertical;
+}
+.icon_key_ime_action_search {
+    image_ref: "icon_search.png";
+    image_height: 16.5;
+    image_scale_mode: fill_vertical;
+}
+.icon_key_ime_action_send {
+    image_ref: "icon_send.png";
+    image_height: 12;
+    image_scale_mode: fill_vertical;
+}
+.for-google-icon-background {
+    google_icon_background_color: #DE003DFF;
+}
+.background-icon.for-voiceime-circle-bar {
+    color: @color_state_action;
+}
+.navbar,
+.keyboard-body-area.for-floating-keyboard-handle,
+.navbar.for-one-handed,
+.navbar-overlay{
+    background_color: #DE003D;
+}
+.keyboard-background {
+    background_image_ref: "background";
+    background_image_gravity: bottom;
+    background_image_scale_mode: fill_horizontal;
+    background_image_tile_mode: mirror;
+    background_image_width: 0;
+    background_image_height: 0;
+}
+.keyboard-background.for-preview {
+    background_image_width: 0;
+    background_image_height: 0;
+}

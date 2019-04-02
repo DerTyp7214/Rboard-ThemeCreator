@@ -1,0 +1,18 @@
+{
+  "format_version": 3,
+  "id": "pewdiepie",
+  "name": "pew",
+  "prefer_key_border": false,
+  "is_light_theme": false,
+  "style_sheets": [
+    "style_sheet_md2.css"
+  ],
+  "flavors": [
+    {
+      "type": "BORDER",
+      "style_sheets": [
+        "style_sheet_md2_border.css"
+      ]
+    }
+  ]
+}
