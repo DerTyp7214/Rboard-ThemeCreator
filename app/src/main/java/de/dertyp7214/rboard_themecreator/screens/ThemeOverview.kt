@@ -1,10 +1,10 @@
 package de.dertyp7214.rboard_themecreator.screens
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import de.dertyp7214.rboard_themecreator.MainActivity
 import de.dertyp7214.rboard_themecreator.R
+import de.dertyp7214.rboard_themecreator.adapter.ThemeAdapter
+import kotlinx.android.synthetic.main.activity_theme_overview.*
 import java.io.File
 import java.util.*
 
@@ -26,9 +26,7 @@ class ThemeOverview : AppCompatActivity() {
                 val image = files.find { img -> img.name == it.name.removeSuffix(".zip") }
                 themes.add(GboardTheme(it, image))
             }
-            startActivity(Intent(this, MainActivity::class.java).apply {
-                putExtra("fileName", themes[0].zipFile.absolutePath)
-            })
+            ThemeAdapter(this, rv, themes)
         }
     }
 }
