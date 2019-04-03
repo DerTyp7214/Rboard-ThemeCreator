@@ -5,4 +5,7 @@
         <attr name="keyCornerRadius" format="integer"/>
         <attr name="keyElevation" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="MaskedImageView">
+        <attr name="mask" format="integer"/>
+    </declare-styleable>
 </resources>

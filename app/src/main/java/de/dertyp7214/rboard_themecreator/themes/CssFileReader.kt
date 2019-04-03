@@ -1,12 +1,10 @@
 package de.dertyp7214.rboard_themecreator.themes
 
-import java.util.*
-
 class CssFileReader(private val css: String) {
 
     fun getCssFile(): CssList {
         val parsedDef = parseDef(css)
-        return CssList(parsedDef.first, parseCss(parsedDef.second))
+        return CssList(parsedDef.first, parseCss(parsedDef.second), css)
     }
 
     private fun parseDef(string: String): Pair<ArrayList<CssDef>, String> {
@@ -52,4 +50,12 @@ class CssFileReader(private val css: String) {
 
 data class CssEntry(val keys: List<String>, var value: List<CssDef>)
 data class CssDef(val key: String, var value: String)
-data class CssList(val defList: List<CssDef>, val entryList: List<CssEntry>)
+data class CssList(val defList: ArrayList<CssDef>, val entryList: List<CssEntry>, val original: String) {
+    fun getNewCss(): String {
+        var tmp = original
+        defList.forEach {
+            tmp = tmp.replace(Regex("@def.*${it.key}.*;"), "@def ${it.key} ${it.value}")
+        }
+        return tmp
+    }
+}

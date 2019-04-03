@@ -15,13 +15,19 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.view.setMargins
+import com.google.android.material.button.MaterialButton
 import de.dertyp7214.rboard_themecreator.R
+import de.dertyp7214.rboard_themecreator.core.dp
 import de.dertyp7214.rboard_themecreator.core.setMargins
 
 /**
@@ -41,8 +47,9 @@ class ColorPicker(c: Context) : Dialog(c, R.style.Theme_MaterialComponents_Light
     private lateinit var colorView: View
     private lateinit var shape: GradientDrawable
     private lateinit var hexCode: CustomEditText
-    private lateinit var btnOk: Button
-    private lateinit var btnCancel: Button
+    private lateinit var btnOk: MaterialButton
+    private lateinit var btnCancel: MaterialButton
+    private lateinit var card: CardView
     private var alpha = Color.alpha(Color.GRAY).toFloat()
     private var red = Color.red(Color.GRAY).toFloat()
     private var green = Color.green(Color.GRAY).toFloat()
@@ -91,8 +98,9 @@ class ColorPicker(c: Context) : Dialog(c, R.style.Theme_MaterialComponents_Light
         setContentView(R.layout.color_picker)
 
         background.alpha = 255
-        window!!.setBackgroundDrawable(background)
+        window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        card = findViewById(R.id.card)
         hexCode = findViewById(R.id.hexTxt)
 
         alphaTxt = findViewById(R.id.txtAlpha)
@@ -107,6 +115,29 @@ class ColorPicker(c: Context) : Dialog(c, R.style.Theme_MaterialComponents_Light
         colorView = findViewById(R.id.colorView)
         val bgDrawable = colorView.background as LayerDrawable
         shape = bgDrawable.findDrawableByLayerId(R.id.color_plate) as GradientDrawable
+
+        card.layoutParams = FrameLayout.LayoutParams(
+            300.dp(context),
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ).apply {
+            gravity = Gravity.CENTER
+            setMargins(50.dp(context))
+        }
+
+        (card.parent as ViewGroup).setOnClickListener { dismiss() }
+        card.setOnClickListener { }
+        colorView.setOnClickListener {
+            if (listener != null) listener!!.color(colorInt)
+            if (listener != null) listener!!.color(
+                getColorString(
+                    alpha.toInt(),
+                    red.toInt(),
+                    green.toInt(),
+                    blue.toInt()
+                )
+            )
+            dismiss()
+        }
 
         if (colorMode == ColorMode.ARGB || colorMode == ColorMode.CMYK) {
             alphaBar.visibility = View.VISIBLE
