@@ -199,14 +199,16 @@ class Keyboard(context: Context, attrs: AttributeSet?) : LinearLayout(context, a
         }
     }
 
-    fun setTheme(theme: Theme) {
-        setKeyBorders(theme.border)
-        if (theme.backgroundImage == null) keyboardColor = theme.backgroundColor
-        if (theme.backgroundImage != null && bg != theme.backgroundImage) keyboardImage = theme.backgroundImage
-        setFunctionKeyBackground(theme.functionKeyBackgroundColor)
-        setFunctionKeyColor(theme.functionKeyTextColor)
-        setKeyTextColor(theme.keyTextColor)
-        setKeySmallTextColor(theme.keySmallTextColor)
-        setKeyColor(theme.keyBackgroundColor)
+    fun setTheme(theme: Theme?) {
+        if (theme != null) {
+            setKeyBorders(theme.border)
+            if (theme.backgroundImage == null) keyboardColor = theme.backgroundColor
+            if (theme.backgroundImage != null && bg != theme.backgroundImage) keyboardImage = theme.backgroundImage
+            setFunctionKeyBackground(theme.functionKeyBackgroundColor)
+            setFunctionKeyColor(theme.functionKeyTextColor)
+            setKeyTextColor(theme.keyTextColor)
+            setKeySmallTextColor(theme.keySmallTextColor)
+            setKeyColor(theme.keyBackgroundColor)
+        }
     }
 }

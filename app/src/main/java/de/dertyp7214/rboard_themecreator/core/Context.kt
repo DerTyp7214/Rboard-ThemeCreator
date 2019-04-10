@@ -19,7 +19,7 @@ fun Context.nextActivity(): AppCompatActivity? {
     }
 }
 
-fun Context.readFileAsString(file: String): String {
+fun readFileAsString(file: String): String {
     return BufferedReader(InputStreamReader(FileInputStream(File(file)))).use { it.readText() }
 }
 

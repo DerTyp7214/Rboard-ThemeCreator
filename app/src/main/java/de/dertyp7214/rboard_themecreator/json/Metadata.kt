@@ -5,6 +5,7 @@ data class Metadata(
     var id: String = "",
     var name: String = "",
     var prefer_key_border: Boolean = false,
+    var lock_key_border: Boolean = false,
     var is_light_theme: Boolean = true,
     var style_sheets: ArrayList<String?> = ArrayList(),
     var flavors: ArrayList<Flavor?> = ArrayList()

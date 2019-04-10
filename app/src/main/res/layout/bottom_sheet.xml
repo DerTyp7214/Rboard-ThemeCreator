@@ -52,16 +52,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_marginTop="2dp"
-                android:id="@+id/progressBar" android:layout_gravity="bottom"/>
+                android:id="@+id/progressBarBottomSheet"
+                android:layout_gravity="bottom"/>
     </FrameLayout>
 
-    <de.dertyp7214.rboard_themecreator.keyboard.Keyboard
+    <ImageView
             android:elevation="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/keyboard"
+            android:scaleType="fitStart"
+            android:src="@drawable/dummy_keyboard"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-    </de.dertyp7214.rboard_themecreator.keyboard.Keyboard>
+            app:layout_constraintEnd_toEndOf="parent"/>
 </LinearLayout>

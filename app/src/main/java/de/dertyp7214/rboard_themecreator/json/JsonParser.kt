@@ -84,6 +84,7 @@ class JsonParser {
                 metadata.id = json.getString("id")
                 metadata.name = json.getString("name")
                 metadata.prefer_key_border = json.getBoolean("prefer_key_border")
+                metadata.lock_key_border = json.getBoolean("lock_key_border")
                 metadata.is_light_theme = json.getBoolean("is_light_theme")
                 metadata.style_sheets = toClassList(json.getJSONArray("style_sheets"), String::class.java)
                 metadata.flavors = toClassList(json.getJSONArray("flavors"), Flavor::class.java)

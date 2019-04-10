@@ -4,7 +4,7 @@ class CssFileReader(private val css: String) {
 
     fun getCssFile(): CssList {
         val parsedDef = parseDef(css)
-        return CssList(parsedDef.first, parseCss(parsedDef.second), css)
+        return CssList(parsedDef.first, ArrayList(), css)
     }
 
     private fun parseDef(string: String): Pair<ArrayList<CssDef>, String> {
@@ -54,7 +54,7 @@ data class CssList(val defList: ArrayList<CssDef>, val entryList: List<CssEntry>
     fun getNewCss(): String {
         var tmp = original
         defList.forEach {
-            tmp = tmp.replace(Regex("@def.*${it.key}.*;"), "@def ${it.key} ${it.value}")
+            tmp = tmp.replace(Regex("@def.*${it.key} .*;"), "@def ${it.key} ${it.value};")
         }
         return tmp
     }

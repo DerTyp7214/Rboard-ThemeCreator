@@ -2,7 +2,11 @@
   <dictionary name="lengw">
     <words>
       <w>emoij</w>
+      <w>emoijs</w>
+      <w>evenodd</w>
       <w>gboard</w>
+      <w>rkbdi</w>
+      <w>thememe</w>
     </words>
   </dictionary>
 </component>

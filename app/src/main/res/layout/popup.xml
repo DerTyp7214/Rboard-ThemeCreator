@@ -13,7 +13,10 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="14dp" android:paddingTop="14dp" android:paddingEnd="14dp" android:paddingBottom="2dp">
+            android:paddingStart="14dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="2dp">
 
         <TextView
                 android:text="TextView"
@@ -23,7 +26,8 @@
                 android:alpha=".87"
                 android:textSize="21sp"
                 android:textStyle="bold"
-                android:textColor="#000000" android:layout_marginBottom="5dp"/>
+                android:textColor="#000000"
+                android:layout_marginBottom="5dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -39,12 +43,14 @@
                     android:id="@+id/textInput"
                     tools:ignore="HardcodedText"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:gravity="end">
+
             <com.google.android.material.button.MaterialButton
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:text="@android:string/cancel"
@@ -52,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/cancel"
                     android:layout_margin="4dp"/>
+
             <com.google.android.material.button.MaterialButton
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:text="@android:string/ok"
