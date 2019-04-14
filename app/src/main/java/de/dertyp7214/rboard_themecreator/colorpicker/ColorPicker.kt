@@ -296,8 +296,7 @@ class ColorPicker(c: Context) : Dialog(c, R.style.Theme_MaterialComponents_Light
             btnOk.setTextColor(Color.WHITE)
             btnCancel.setTextColor(Color.WHITE)
             hexCode.setTextColor(Color.WHITE)
-            background = ColorDrawable(Color.parseColor("#303641"))
-            window!!.setBackgroundDrawable(background)
+            card.setCardBackgroundColor(Color.parseColor("#303641"))
         }
 
         btnOk.setOnClickListener {

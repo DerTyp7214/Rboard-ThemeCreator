@@ -32,6 +32,7 @@ import de.dertyp7214.rboard_themecreator.fragments.About
 import de.dertyp7214.rboard_themecreator.fragments.BaseFragment
 import de.dertyp7214.rboard_themecreator.fragments.ThemeEditor
 import de.dertyp7214.rboard_themecreator.fragments.ThemeList
+import de.dertyp7214.rboard_themecreator.helpers.ColorHelper
 import de.dertyp7214.rboard_themecreator.themes.CssDef
 import java.io.File
 import java.util.*
@@ -65,6 +66,7 @@ class ThemeOverview : AppCompatActivity() {
         currentItems.forEach {
             drawer.removeItem(it)
         }
+
         currentItems.clear()
         drawer.addItem(DividerDrawerItem().withIdentifier(1337))
         tmpThemes.entries.forEach {
@@ -87,6 +89,8 @@ class ThemeOverview : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         defaultTitle = title.toString()
+
+        toolbar.setToolbarColor(ColorHelper.getAttrColor(this, android.R.attr.windowBackground))
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) window.navigationBarDividerColor =
             resources.getColor(R.color.graySemi, null)
@@ -114,7 +118,6 @@ class ThemeOverview : AppCompatActivity() {
                 DividerDrawerItem()
             )
             .withOnDrawerItemClickListener { _, _, drawerItem ->
-                toolbar.menu.clear()
                 when (drawerItem.identifier) {
                     themeList.toLong() -> {
                         setHome()
@@ -135,6 +138,7 @@ class ThemeOverview : AppCompatActivity() {
                     .withSetSelected(false)
                     .withName(R.string.theme_manager)
                     .withIcon(R.drawable.ic_open)
+                    .withIconColor(ColorHelper.getAttrColor(this, android.R.attr.textColor))
                     .withOnDrawerItemClickListener { _, _, _ ->
                         themeManager.open(this).invokeDelay(250)
                         true
@@ -181,7 +185,8 @@ class ThemeOverview : AppCompatActivity() {
             drawer.setSelection(themeList.toLong(), false)
             toolbar.inflateMenu(R.menu.search)
             title = defaultTitle
-            val search = toolbar.menu.findItem(R.id.menu_search).actionView as SearchView
+            val item = toolbar.menu.findItem(R.id.menu_search)
+            val search = item.actionView as SearchView
             search.apply {
                 setOnSearchClickListener {
                     TransitionManager.beginDelayedTransition(toolbar)
@@ -204,6 +209,7 @@ class ThemeOverview : AppCompatActivity() {
                     }
                 })
             }
+            toolbar.setToolbarColor(ColorHelper.getAttrColor(this, android.R.attr.windowBackground))
         }
     }
 

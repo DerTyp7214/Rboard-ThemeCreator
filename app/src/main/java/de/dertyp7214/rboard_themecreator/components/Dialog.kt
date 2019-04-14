@@ -6,6 +6,8 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.view.Gravity
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -23,6 +25,7 @@ class Dialog(
     hint: String = "",
     value: String = "",
     filter: String = "",
+    plain: Boolean = false,
     submit: (value: String) -> Unit = {}
 ) {
 
@@ -35,6 +38,7 @@ class Dialog(
         val btnOk: MaterialButton = dialogView.findViewById(R.id.ok)
         val btnCancel: MaterialButton = dialogView.findViewById(R.id.cancel)
         val titleView: TextView = dialogView.findViewById(R.id.title)
+        val textView: TextView = dialogView.findViewById(R.id.text)
         val dialog = builder.create()
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -54,10 +58,19 @@ class Dialog(
             })
         }
 
+        textView.text = value
         titleView.text = title
         textInputLayout.hint = hint
         editText.setText(value)
-        btnOk.isEnabled = false
+
+        if (plain) {
+            textView.visibility = VISIBLE
+            textInputLayout.visibility = GONE
+        } else {
+            textView.visibility = GONE
+            textInputLayout.visibility = VISIBLE
+            btnOk.isEnabled = false
+        }
 
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}

@@ -151,7 +151,6 @@
                 android:layout_marginEnd="5dp"
                 android:layout_toStartOf="@+id/btn_ok"
                 android:text="@android:string/cancel"
-                android:textColor="@android:color/black"
                 android:textSize="14sp"/>
 
         <com.google.android.material.button.MaterialButton
@@ -162,8 +161,7 @@
                 android:layout_below="@+id/blue"
                 android:layout_alignEnd="@+id/txtGreen"
                 android:layout_marginEnd="5dp"
-                android:text="@android:string/ok"
-                android:textColor="@android:color/black"/>
+                android:text="@android:string/ok"/>
 
         <TextView
                 android:id="@+id/txtAlpha"
@@ -179,6 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/green"
+                android:textColor="?android:attr/textColor"
                 android:layout_alignStart="@+id/txtAlpha"
                 android:layout_alignEnd="@+id/txtAlpha"/>
 
@@ -187,6 +186,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/blue"
+                android:textColor="?android:attr/textColor"
                 android:layout_alignStart="@+id/txtRed"
                 android:layout_alignEnd="@+id/txtRed"/>
 
@@ -195,6 +195,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/btn_cancel"
+                android:textColor="?android:attr/textColor"
                 android:layout_alignStart="@+id/txtRed"
                 android:layout_alignEnd="@+id/txtGreen"/>
 

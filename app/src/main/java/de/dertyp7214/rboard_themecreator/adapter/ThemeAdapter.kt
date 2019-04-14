@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.dertyp7214.rboard_themecreator.R
+import de.dertyp7214.rboard_themecreator.components.Dialog
 import de.dertyp7214.rboard_themecreator.components.MaskedImageView
 import de.dertyp7214.rboard_themecreator.core.runAsCommand
 import de.dertyp7214.rboard_themecreator.fragments.GboardTheme
@@ -68,9 +69,18 @@ class ThemeAdapter(
             }
         }
         holder.card.setOnLongClickListener {
-            "rm ${item.zipFile.absolutePath}".runAsCommand()
-            "rm ${item.zipFile.absolutePath.removeSuffix(".zip")}".runAsCommand()
-            if (activity is ThemeOverview) activity.setHome(false)
+            Dialog(
+                activity,
+                activity.getString(R.string.delete),
+                "",
+                activity.getString(R.string.delete_long),
+                "",
+                true
+            ) {
+                "rm ${item.zipFile.absolutePath}".runAsCommand()
+                "rm ${item.zipFile.absolutePath.removeSuffix(".zip")}".runAsCommand()
+                if (activity is ThemeOverview) activity.setHome(false)
+            }
             true
         }
     }

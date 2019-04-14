@@ -8,10 +8,14 @@
         <item name="android:statusBarColor">@color/whiteSemi</item>
         <item name="android:navigationBarColor">@color/whiteSemi</item>
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:itemBackground">@color/background_light</item>
+        <item name="android:textColor">@color/darkBg</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+        <item name="actionBarTheme">@style/ActionBarTheme</item>
 
         <!-- MaterialDrawer specific values -->
         <item name="material_drawer_background">@color/material_drawer_background</item>
@@ -24,5 +28,28 @@
         <item name="material_drawer_selected_legacy">@color/material_drawer_selected_legacy</item>
         <item name="material_drawer_selected_text">@color/colorAccent</item>
         <item name="material_drawer_header_selection_text">@color/material_drawer_primary_text</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="AppTheme">
+        <item name="android:statusBarColor">@color/blackSemi</item>
+        <item name="android:navigationBarColor">@color/blackSemi</item>
+        <item name="android:windowBackground">@color/darkBg</item>
+        <item name="android:itemBackground">@color/background_dark</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="actionBarTheme">@style/ActionBarTheme.Dark</item>
+
+        <item name="material_drawer_background">@color/material_drawer_dark_background</item>
+        <item name="material_drawer_primary_text">@color/material_drawer_dark_primary_text</item>
+        <item name="material_drawer_primary_icon">@color/material_drawer_dark_primary_text</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_dark_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_dark_divider</item>
+        <item name="material_drawer_selected">@color/colorAccentSemi</item>
+        <item name="material_drawer_selected_legacy">@color/material_drawer_dark_selected_legacy</item>
+        <item name="material_drawer_selected_text">@color/colorAccent</item>
+        <item name="material_drawer_header_selection_text">@color/material_drawer_dark_primary_text</item>
     </style>
 </resources>

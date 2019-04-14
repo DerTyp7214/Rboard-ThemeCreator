@@ -62,15 +62,18 @@
                             android:layout_height="wrap_content">
 
                         <Switch
+                                android:textColor="?android:attr/textColor"
                                 android:text="Light Theme"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/lightTheme"/>
 
-                        <Button
+                        <com.google.android.material.button.MaterialButton
                                 android:text="Export"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                app:strokeColor="@color/colorAccentSemi"
                                 android:id="@+id/button"/>
                     </LinearLayout>
 

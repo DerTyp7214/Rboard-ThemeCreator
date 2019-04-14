@@ -37,7 +37,7 @@
 
             <TextView
                     android:text="Keyboard"
-                    android:textColor="@android:color/white"
+                    android:textColor="?android:attr/windowBackground"
                     android:layout_marginStart="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:max="1000"
                 android:progressBackgroundTint="@color/colorAccent"
-                android:progressTint="@android:color/white"
+                android:progressTint="@color/whiteSemi"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_marginTop="2dp"

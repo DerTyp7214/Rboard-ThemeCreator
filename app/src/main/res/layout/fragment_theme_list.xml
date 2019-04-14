@@ -15,6 +15,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/progressBar2"
                 android:padding="160dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
                 android:alpha="0"
                 tools:alpha="1"
@@ -25,6 +26,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/rv"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                android:background="@android:color/white"/>
+                android:background="?android:attr/windowBackground"/>
     </FrameLayout>
 </LinearLayout>

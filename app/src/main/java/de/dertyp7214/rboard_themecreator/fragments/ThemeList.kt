@@ -45,10 +45,11 @@ class ThemeList(private val scrollState: Int = 0) : BaseFragment() {
                 val image = files.find { img -> img.name == it.name.removeSuffix(".zip") }
                 themes.add(GboardTheme(it, image))
             }
-            Collections.sort(themes, object : Comparator<GboardTheme> {
-                override fun compare(o1: GboardTheme?, o2: GboardTheme?): Int {
-                    return (o1?.zipFile?.name ?: "").compareTo((o2?.zipFile?.name ?: ""), true)
-                }
+            themes.sortWith(Comparator { o1, o2 ->
+                (o1?.zipFile?.name ?: "").compareTo(
+                    (o2?.zipFile?.name ?: ""),
+                    true
+                )
             })
             ObjectAnimator.ofFloat(v.findViewById<ProgressBar>(R.id.progressBar2), "alpha", 0F).apply {
                 duration = 200

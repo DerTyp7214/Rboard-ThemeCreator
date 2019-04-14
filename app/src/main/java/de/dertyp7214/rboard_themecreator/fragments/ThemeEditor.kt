@@ -45,6 +45,7 @@ class ThemeEditor(private val fileName: String? = "", private val key: String? =
     private var exported = true
     private var defList = ArrayList<CssDef>()
     private var navColor = Color.WHITE
+    private var baseColor: Int = Color.WHITE
     private lateinit var activity: AppCompatActivity
     private lateinit var behavior: BottomSheetBehavior<View>
     var bottomSheetImageView: ImageView? = null
@@ -56,6 +57,7 @@ class ThemeEditor(private val fileName: String? = "", private val key: String? =
         activity = getActivity() as AppCompatActivity
 
         navColor = activity.window.navigationBarColor
+        baseColor = activity.window.navigationBarColor
 
         if (activity is ThemeOverview) (activity as ThemeOverview).themeEditorInstance = this
 
@@ -83,7 +85,7 @@ class ThemeEditor(private val fileName: String? = "", private val key: String? =
             override fun onSlide(p0: View, p1: Float) {
                 v.findViewById<ImageView>(R.id.bottomSheetArrow).rotation = 180 * p1
                 v.findViewById<ProgressBar>(R.id.progressBarBottomSheet).progress = (1000 * p1).toInt()
-                activity.window.navigationBarColor = ColorUtils.blendARGB(Color.WHITE, navColor, p1)
+                activity.window.navigationBarColor = ColorUtils.blendARGB(baseColor, navColor, p1)
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     if (ColorUtils.calculateLuminance(activity.window.navigationBarColor) > .5F)
                         activity.window.decorView.systemUiVisibility =

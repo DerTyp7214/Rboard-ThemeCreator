@@ -61,6 +61,7 @@ class CssDefAdapter(
                 ColorPicker(activity).apply {
                     colorMode = ColorMode.ARGB
                     setColor(color)
+                    setDarkMode(true)
                     setAnimationTime(200)
                     setListener(object : ColorPicker.Listener {
                         override fun update(color: Int) {}
