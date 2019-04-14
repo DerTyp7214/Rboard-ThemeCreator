@@ -28,10 +28,7 @@ import com.theartofdev.edmodo.cropper.CropImage
 import com.transitionseverywhere.ChangeText
 import de.dertyp7214.rboard_themecreator.R
 import de.dertyp7214.rboard_themecreator.core.*
-import de.dertyp7214.rboard_themecreator.fragments.About
-import de.dertyp7214.rboard_themecreator.fragments.BaseFragment
-import de.dertyp7214.rboard_themecreator.fragments.ThemeEditor
-import de.dertyp7214.rboard_themecreator.fragments.ThemeList
+import de.dertyp7214.rboard_themecreator.fragments.*
 import de.dertyp7214.rboard_themecreator.helpers.ColorHelper
 import de.dertyp7214.rboard_themecreator.themes.CssDef
 import java.io.File
@@ -49,6 +46,7 @@ class ThemeOverview : AppCompatActivity() {
     val themeList = 1
     val themeEditor = 2
     val about = 3
+    val settings = 4
 
     var themeEditorInstance: ThemeEditor? = null
 
@@ -115,6 +113,12 @@ class ThemeOverview : AppCompatActivity() {
                     .withSetSelected(false)
                     .withName(R.string.about)
                     .withIcon(R.drawable.ic_about),
+                PrimaryDrawerItem()
+                    .withIdentifier(settings.toLong())
+                    .withSelectable(true)
+                    .withSetSelected(false)
+                    .withName(R.string.settings)
+                    .withIcon(R.drawable.ic_settings),
                 DividerDrawerItem()
             )
             .withOnDrawerItemClickListener { _, _, drawerItem ->
@@ -124,6 +128,9 @@ class ThemeOverview : AppCompatActivity() {
                     }
                     about.toLong() -> {
                         setFragment(About(), about)
+                    }
+                    settings.toLong() -> {
+                        setFragment(Settings(), settings)
                     }
                 }
                 drawer.closeDrawer()
@@ -155,7 +162,21 @@ class ThemeOverview : AppCompatActivity() {
             )
         }
 
-        setHome(false)
+        when (val value = intent.extras?.getInt("fragment")) {
+            about, settings -> {
+                setFragment(fragment(value), value, animated = false)
+                drawer.setSelection(value.toLong(), false)
+            }
+            else -> setHome(false, animated = false)
+        }
+    }
+
+    private fun fragment(id: Int): BaseFragment {
+        return when (id) {
+            about -> About()
+            settings -> Settings()
+            else -> BaseFragment()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -178,10 +199,17 @@ class ThemeOverview : AppCompatActivity() {
         }
     }
 
-    fun setHome(wait: Boolean = true) {
+    fun setHome(wait: Boolean = true, animated: Boolean = true) {
         ObjectAnimator.ofFloat(toolbar, "elevation", if (themeListScrollState > 0) 12.dp(this).toFloat() else 0F)
             .start()
-        setFragment(ThemeList(themeListScrollState), themeList, wait = wait, back = false, forceReplace = true) {
+        setFragment(
+            ThemeList(themeListScrollState),
+            themeList,
+            wait = wait,
+            back = false,
+            forceReplace = true,
+            animated = animated
+        ) {
             drawer.setSelection(themeList.toLong(), false)
             toolbar.inflateMenu(R.menu.search)
             title = defaultTitle
@@ -216,10 +244,7 @@ class ThemeOverview : AppCompatActivity() {
     override fun onBackPressed() {
         if (currentFragment?.onBackPressed() == true) {
             when (currentFragmentId) {
-                themeEditor -> {
-                    setHome(false)
-                }
-                about -> {
+                themeEditor, about, settings -> {
                     setHome(false)
                 }
                 themeList -> {
@@ -254,9 +279,11 @@ class ThemeOverview : AppCompatActivity() {
                 fragmentTransaction.replace(R.id.frameLayout, fragment)
                 if (animated) fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 fragmentTransaction.commit()
-                ObjectAnimator.ofFloat(drawerArrow, "progress", if (back) 1F else 0F).start()
+                if (animated) ObjectAnimator.ofFloat(drawerArrow, "progress", if (back) 1F else 0F).start()
+                else drawerArrow.progress = if (back) 1F else 0F
                 toolbar.menu.clear()
                 switched(fragment)
+                toolbar.setToolbarColor(ColorHelper.getAttrColor(this, android.R.attr.windowBackground))
             }, if (wait) 250 else 0L)
     }
 

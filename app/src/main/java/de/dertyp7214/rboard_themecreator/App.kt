@@ -15,16 +15,25 @@ class App : Application() {
             override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {}
             override fun onActivityStopped(activity: Activity?) {}
             override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
-
+                applyTheme(activity)
             }
 
             override fun onActivityStarted(activity: Activity?) {
-
+                applyTheme(activity)
             }
 
             override fun onActivityResumed(activity: Activity?) {
-
+                applyTheme(activity)
             }
         })
+    }
+
+    fun applyTheme(activity: Activity?) {
+        if (activity != null) {
+            if (getSharedPreferences("settings", MODE_PRIVATE).getBoolean("dark_mode", false))
+                activity.setTheme(R.style.AppTheme_Dark)
+            else
+                activity.setTheme(R.style.AppTheme)
+        }
     }
 }

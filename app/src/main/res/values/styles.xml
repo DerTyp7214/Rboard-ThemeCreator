@@ -1,5 +1,9 @@
 <resources>
 
+    <style name="BaseTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="MaterialDrawerTheme.Light">
         <!-- Customize your theme here. -->

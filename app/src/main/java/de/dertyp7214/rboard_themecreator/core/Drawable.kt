@@ -16,6 +16,16 @@ fun VectorDrawable.getBitmap(context: Context): Bitmap {
     return bitmap
 }
 
+
+fun getAttrDrawable(context: Context, style: Int): Drawable? {
+    val typedArrayDark = context.obtainStyledAttributes(
+        intArrayOf(style)
+    )
+    val drawable = typedArrayDark.getDrawable(0)
+    typedArrayDark.recycle()
+    return drawable
+}
+
 fun Drawable.toBitmap(): Bitmap {
     if (this is BitmapDrawable) {
         return bitmap

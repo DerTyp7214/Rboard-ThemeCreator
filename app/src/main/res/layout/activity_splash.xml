@@ -7,4 +7,24 @@
         android:layout_height="match_parent"
         tools:context=".screens.Splash">
 
+    <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/icLauncher"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:alpha="0"
+            android:scaleX="0"
+            android:scaleY="0"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/icLauncher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="60dp">
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
